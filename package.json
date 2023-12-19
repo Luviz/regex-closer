@@ -14,8 +14,8 @@
   "contributes": {
     "commands": [
       {
-        "command": "regex-closer.helloWorld",
-        "title": "Hello World"
+        "command": "regex-closer.closeEditorPattern",
+        "title": "Close Editor with pattern"
       }
     ]
   },

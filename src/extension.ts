@@ -1,25 +1,44 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+const extensionName = "regex-closer";
+
 export function activate(context: vscode.ExtensionContext) {
+  const closeEditorPattern = vscode.commands.registerCommand(
+    `${extensionName}.closeEditorPattern`,
+    (args) => {
+      console.log("args>>", args);
+      vscode.window
+        .showInputBox({
+          placeHolder: "Add some regex",
+        })
+        .then(async (pattern) => {
+          if (!pattern) return;
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "regex-closer" is now active!');
+          const re = RegExp(pattern);
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('regex-closer.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from regex-closer!');
-	});
+          const tabs = vscode.window.tabGroups.all
+            .map((group) => group.tabs)
+            .flat();
 
-	context.subscriptions.push(disposable);
+          const tabsMatch: boolean[] = tabs.map((tab) => {
+            if (typeof tab.input != "object" || !tab.input) return false;
+            const input = tab.input as vscode.TabInputText;
+            return "uri" in input ? re.test(input.uri.toString()) : false;
+          });
+
+          const promises = tabsMatch.map((close, ix) => {
+            return close
+              ? new Promise<boolean>((r) =>
+                  vscode.window.tabGroups.close(tabs[ix]).then(r)
+                )
+              : Promise.resolve(false);
+          });
+          Promise.all(promises);
+        });
+    }
+  );
+
+  context.subscriptions.push(closeEditorPattern);
 }
 
 // This method is called when your extension is deactivated
