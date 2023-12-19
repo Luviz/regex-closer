@@ -2,6 +2,9 @@
   "name": "regex-closer",
   "displayName": "regex-closer",
   "description": "closes editor windows that match the pattern",
+  "repository": {
+    "url": "https://github.com/Luviz/regex-closer.git"
+  },
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.85.0"
