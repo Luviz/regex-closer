@@ -2,6 +2,7 @@
   "name": "regex-closer",
   "displayName": "regex-closer",
   "description": "closes editor windows that match the pattern",
+  "publisher": "Luviz",
   "repository": {
     "url": "https://github.com/Luviz/regex-closer.git"
   },
