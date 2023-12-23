@@ -3,6 +3,7 @@
   "displayName": "regex-closer",
   "description": "closes editor windows that match the pattern",
   "publisher": "Luviz",
+  "icon": "regex_closer_128x128.png",
   "repository": {
     "url": "https://github.com/Luviz/regex-closer.git"
   },
