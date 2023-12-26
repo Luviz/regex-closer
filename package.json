@@ -19,8 +19,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "regex-closer.closeEditorPattern",
-        "title": "Close Editor with pattern"
+        "command": "regex-closer.closeEditorPattern.uri",
+        "title": "Close Editor with pattern: uri"
+      },
+      {
+        "command": "regex-closer.closeEditorPattern.label",
+        "title": "Close Editor with pattern: label"
       }
     ]
   },
