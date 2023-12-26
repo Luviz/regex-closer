@@ -1,9 +1,15 @@
 # Change Log
 
-All notable changes to the "regex-closer" extension will be documented in this file.
+## 0.2.0
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- features added close by regex using Label
 
-## [Unreleased]
+## 0.1.1
 
-- Initial release
+- update docs
+  - read me
+  - icons
+
+## 0.1.0
+
+- features added close by regex using URI

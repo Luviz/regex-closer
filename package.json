@@ -7,7 +7,7 @@
   "repository": {
     "url": "https://github.com/Luviz/regex-closer.git"
   },
-  "version": "0.1.1",
+  "version": "0.2.0",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -19,8 +19,12 @@
   "contributes": {
     "commands": [
       {
-        "command": "regex-closer.closeEditorPattern",
-        "title": "Close Editor with pattern"
+        "command": "regex-closer.closeEditorPattern.uri",
+        "title": "Close Editor with pattern: uri"
+      },
+      {
+        "command": "regex-closer.closeEditorPattern.label",
+        "title": "Close Editor with pattern: label"
       }
     ]
   },

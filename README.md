@@ -24,6 +24,6 @@ The flexibility of using regex allows you to specify patterns like `service.*tsx
 
 
 ## TODO
-
+  - [x] Allow close by label
   - [ ] Better selector interface
   - [ ] Memory of past patterns
